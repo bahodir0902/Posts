@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="activate-container">
+    <h2 class="activate-title">Activate Your Account 🔓</h2>
+    <p class="activate-message">
+        We've sent you an activation code to your email address. Please check your inbox (and spam folder just in case) and enter the code below to activate your account.
+    </p>
+
+    <form method="POST" action="{% url 'accounts:verify_email' %}">
+        {% csrf_token %}
+        <input type="text" name="activation_code" class="activate-input" placeholder="Enter activation code" maxlength="4" required>
+        <button type="submit" class="activate-button">Activate</button>
+    </form>
+
+    <p class="activate-note">
+        Didn’t receive the email? <a href="{% url 'accounts:register' %}" class="activate-link">Resend Activation Email</a>.
+    </p>
+</div>
+
+<style>
+    .activate-container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 30px;
+        text-align: center;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .activate-title {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .activate-message {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .activate-input {
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        text-align: center;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .activate-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        color: white;
+        background-color: #28a745;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .activate-button:hover {
+        background-color: #218838;
+    }
+
+    .activate-note {
+        font-size: 14px;
+        color: #777;
+        margin-top: 15px;
+    }
+
+    .activate-link {
+        color: #007BFF;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .activate-link:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}

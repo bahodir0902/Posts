@@ -10,5 +10,6 @@ urlpatterns = [
     path('edit_profile/', edit_profile, name='edit_profile'),
     path('forgot_password/', forgot_password, name='forgot_password'),
     path('verify_code/', verify_code, name='verify_code'),
-    path('create_new_password/', create_new_password, name='create_new_password')
+    path('create_new_password/', create_new_password, name='create_new_password'),
+    path('verify_email/', verify_email, name='verify_email')
 ]

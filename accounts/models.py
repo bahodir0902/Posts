@@ -23,3 +23,17 @@ class Code(models.Model):
     @override
     def __str__(self):
         return f"Code: {self.code_number} for {self.user.email} (Expires: {self.expire_date})"
+
+class Code_Email(models.Model):
+    code_number = models.CharField(max_length=10)
+    email = models.EmailField(max_length=200)
+    expire_date = models.DateTimeField(default=time_default)
+
+    @override
+    def save(self, *args, **kwargs):
+        Code_Email.objects.filter(email=self.email).delete()
+        super().save(*args, **kwargs)
+
+    @override
+    def __str__(self):
+        return f"Code: {self.code_number} for {self.user.email} (Expires: {self.expire_date})"
