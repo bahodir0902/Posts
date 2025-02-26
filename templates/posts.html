@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Posts{% endblock %}
+
+{% block extra_css %}
+<!-- Import a modern Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/posts.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Posts</h2>
+    {% for post in posts %}
+        <div class="post-card">
+            <div class="post-info">
+                <p class="post-title">{{ post.title }}</p>
+                <small class="post-meta">{{ post.published_date }}</small>
+            </div>
+            <div class="btn-group">
+                <a href="{% url 'post_details' post.id %}" class="btn btn-primary">View</a>
+                <a href="{% url 'post_edit' post.id %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'post_delete' post.id %}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    {% empty %}
+        <p class="no-posts">No posts available.</p>
+    {% endfor %}
+</div>
+    {% include 'paginations.html' with page=posts %}
+{% endblock %}

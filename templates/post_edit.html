@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Edit Post{% endblock %}
+
+{% block extra_css %}
+<!-- Import a modern Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/post_edit.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="edit-container">
+        <h2>Edit Post</h2>
+        <form method="POST" action="{% url 'post_edit' post.id %}">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="id_title">Title</label>
+                <input type="text" id="id_title" name="title" class="form-control" value="{{ post.title }}">
+            </div>
+
+            <div class="form-group">
+                <label for="id_slug">Slug</label>
+                <input type="text" id="id_slug" name="slug" class="form-control" value="{{ post.slug }}">
+            </div>
+
+            <div class="form-group">
+                <label for="id_body">Body</label>
+                <textarea id="id_body" name="body" class="form-control" rows="5">{{ post.body }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="id_status">Status</label>
+                <select id="id_status" name="status" class="form-control">
+                    {% for value, label in post.Status.choices %}
+                        <option value="{{ value }}" {% if post.status == value %}selected{% endif %}>{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-success btn-save">Save Changes</button>
+                <a href="{% url 'posts' %}" class="btn btn-secondary btn-cancel">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

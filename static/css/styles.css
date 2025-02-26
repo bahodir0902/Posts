@@ -1,0 +1,151 @@
+/* Global Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #c8c8c8;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Wrapper to ensure content stretches between navbar and footer */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Main Content */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Custom Navbar with Glassmorphism */
+.custom-navbar {
+    background: rgba(30, 30, 30, 0.75);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Neon pink accent */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.custom-navbar .navbar-brand {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4644c0; /* Neon pink */
+    text-shadow: 0 0 5px #a2bce4;
+    transition: transform 0.3s ease;
+}
+.custom-navbar .navbar-brand:hover {
+    transform: scale(1.1);
+}
+.custom-navbar .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+    margin-right: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.custom-navbar .nav-link:hover {
+    color: #f9f9f9; /* Lighter pink */
+    transform: scale(1.1);
+}
+.custom-navbar .navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.custom-navbar .navbar-toggler-icon {
+    filter: invert(1);
+}
+/* Navbar Buttons */
+.custom-navbar .btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-navbar .btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.8);
+    color: #ffffff;
+}
+
+.custom-navbar .btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.custom-navbar .btn-primary {
+    background: #4644c0; /* Matching your neon theme */
+    border: none;
+    color: #ffffff;
+}
+
+.custom-navbar .btn-primary:hover {
+    background: #5a57d6; /* Slightly lighter shade */
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(70, 68, 192, 0.5);
+}
+
+/* Custom styles for dropdown menu */
+.custom-navbar .dropdown-menu {
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.custom-navbar .dropdown-item {
+    color: #ffffff;
+}
+
+.custom-navbar .dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ff69b4; /* Neon pink */
+}
+
+.custom-navbar .dropdown-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .custom-navbar .d-flex {
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .custom-navbar .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+/* Custom Footer with Neon Glow */
+.custom-footer {
+    background: linear-gradient(135deg, #1a1a1a, #000);
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+.custom-footer a {
+    color: #bfbfbf;
+    transition: color 0.3s ease;
+}
+.custom-footer a:hover {
+    color: #ff69b4;
+}
+.custom-footer::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(20, 130, 255, 0.3) 0%, transparent 70%);
+    transform: rotate(45deg);
+}
+
+/* Footer full width */
+.custom-footer {
+    width: 100%;
+}

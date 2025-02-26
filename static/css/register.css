@@ -1,0 +1,56 @@
+/* register.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+.auth-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.auth-card .card-header {
+    background-color: #000DFF;
+    padding: 1.5rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.auth-card .card-body {
+    padding: 2rem;
+}
+
+.auth-card form {
+    width: 100%;
+}
+
+.auth-card input[type="text"],
+.auth-card input[type="password"],
+.auth-card input[type="email"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.auth-card button {
+    background-color: #000DFF;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-card button:hover {
+    background-color: #6B73FF;
+}

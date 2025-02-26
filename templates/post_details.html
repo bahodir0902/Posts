@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block extra_css %}
+<!-- Import a modern Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/post_details.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="post-container">
+        <h1 class="post-title">{{ post.title }}</h1>
+        <p class="post-meta">Published on: {{ post.published_date }}</p>
+        <p class="post-slug">Slug: {{ post.slug }}</p>
+        <div class="post-body">{{ post.body|linebreaks }}</div>
+
+        <a href="{% url 'posts' %}" class="btn btn-secondary btn-back">← Back to Posts</a>
+    </div>
+</div>
+{% endblock %}
